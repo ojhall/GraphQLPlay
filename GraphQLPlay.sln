@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQLPlay.Web", "GraphQLPlay.Web\GraphQLPlay.Web.csproj", "{D849DA04-8C5F-449D-8EC8-04CEE044AFB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQLPlay.Data", "GraphQLPlay.Data\GraphQLPlay.Data.csproj", "{CD1925B6-7310-48CB-87B3-03B299A813B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D849DA04-8C5F-449D-8EC8-04CEE044AFB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D849DA04-8C5F-449D-8EC8-04CEE044AFB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D849DA04-8C5F-449D-8EC8-04CEE044AFB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D849DA04-8C5F-449D-8EC8-04CEE044AFB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD1925B6-7310-48CB-87B3-03B299A813B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD1925B6-7310-48CB-87B3-03B299A813B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD1925B6-7310-48CB-87B3-03B299A813B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD1925B6-7310-48CB-87B3-03B299A813B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

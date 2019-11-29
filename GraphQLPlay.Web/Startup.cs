@@ -1,5 +1,7 @@
 ﻿using GraphQLPlay.Data;
-using GraphQLPlay.GraphTypeSchema;
+using GraphQLPlay.HotChocolate;
+using HotChocolate;
+using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +23,10 @@ namespace GraphQLPlay
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MyDbContext>();
-            services.AddScoped<GraphQlQueryExecutor>();
+            services.AddGraphQL(sp => SchemaBuilder.New()
+                .AddQueryType<MyQueryType>()
+                .AddServices(sp)
+                .Create());
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -37,6 +42,8 @@ namespace GraphQLPlay
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseGraphQL("/api/query");
 
             //app.UseHttpsRedirection();
             app.UseMvc();

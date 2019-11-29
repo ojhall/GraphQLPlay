@@ -25,6 +25,7 @@ namespace GraphQLPlay
             services.AddDbContext<MyDbContext>();
             services.AddGraphQL(sp => SchemaBuilder.New()
                 .AddQueryType<MyQueryType>()
+                .AddMutationType<MyMutationType>()
                 .AddServices(sp)
                 .Create());
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

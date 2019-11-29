@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EntityGraphQL.Schema;
-using GraphQLPlay.Data;
+﻿using GraphQLPlay.Data;
+using GraphQLPlay.GraphTypeSchema;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace GraphQLPlay
 {
@@ -29,7 +21,7 @@ namespace GraphQLPlay
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MyDbContext>();
-            services.AddSingleton(SchemaBuilder.FromObject<MyDbContext>());
+            services.AddScoped<GraphQlQueryExecutor>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

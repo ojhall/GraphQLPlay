@@ -1,6 +1,5 @@
-using EntityGraphQL;
-using EntityGraphQL.Schema;
-using GraphQLPlay.Data;
+using System.Threading.Tasks;
+using GraphQLPlay.GraphTypeSchema;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GraphQLPlay.Controllers
@@ -8,20 +7,17 @@ namespace GraphQLPlay.Controllers
     [Route("api/query")]
     public class QueryController : ControllerBase
     {
-        private readonly MyDbContext _myDbContext;
-        private readonly MappedSchemaProvider<MyDbContext> _schemaProvider;
+        private readonly GraphQlQueryExecutor _queryExecutor;
 
-        public QueryController(MyDbContext myDbContext, MappedSchemaProvider<MyDbContext> schemaProvider)
+        public QueryController(GraphQlQueryExecutor queryExecutor)
         {
-            _myDbContext = myDbContext;
-            _schemaProvider = schemaProvider;
+            _queryExecutor = queryExecutor;
         }
 
         [HttpPost]
-        public object Post([FromBody] QueryRequest query)
+        public async Task<object> Query([FromBody] string query)
         {
-            var results = _myDbContext.QueryObject(query, _schemaProvider);
-            return results;
+            return await _queryExecutor.Execute(query);
         }
     }
 }
